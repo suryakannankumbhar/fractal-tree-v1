@@ -5,8 +5,10 @@ canvas.height = window.innerHeight;
 const ctx = canvas.getContext('2d');
 let curve = 10;
 let curve2 = 0;
+let leafCount = 1;
 
 function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
+    leafCount++;
     ctx.beginPath();
     ctx.save();
     ctx.strokeStyle = color1;
@@ -25,7 +27,7 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
     }
     ctx.stroke();
 
-    if (len < 5) {
+    if (len < 15) {
         // leaves
         ctx.beginPath();
         ctx.arc(0, -len, 10, 0, Math.PI / 2);
@@ -35,6 +37,7 @@ function drawTree(startX, startY, len, angle, branchWidth, color1, color2) {
     }
 
     drawTree(0, -len, len * 0.75, angle + curve, branchWidth * 0.6);
+    drawTree(0, -len, len * 0.75, 0, branchWidth * 0.6);
     drawTree(0, -len, len * 0.75, angle - curve, branchWidth * 0.6);
 
     ctx.restore();
