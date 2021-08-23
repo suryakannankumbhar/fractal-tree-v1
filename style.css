@@ -6,7 +6,7 @@
 
 canvas {
     position: absolute;
-    background: white;
+    background-image: radial-gradient(white, #add8e6);
     height: 100%;
     width: 100%;
 }
